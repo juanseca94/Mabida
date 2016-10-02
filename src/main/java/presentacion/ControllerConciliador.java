@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
 import java.util.List;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 @ManagedBean
@@ -24,7 +25,7 @@ public class ControllerConciliador {
 		
 		if (ControllerConciliador.inicio) {
 			
-			// inicio queda falso
+//			 inicio queda falso
 			ControllerConciliador.inicio=false;
 			
 			ControllerConciliador.listaConciliador = new ArrayList<ModelConciliador>();
@@ -96,8 +97,7 @@ public class ControllerConciliador {
 	/**
 	 * pasa el primer conciliador de ultimas
 	 */
-	public void reparto() {
-
+	public String reparto() {
 		// se elimina el primer conciliador y se adiciona al final de la lista
 		ModelConciliador mCon = ControllerConciliador.listaConciliador.get(0);
 		ControllerConciliador.listaConciliador.remove(0);
@@ -108,7 +108,8 @@ public class ControllerConciliador {
 		for (int i = 0; i < size; i++) {
 			ControllerConciliador.listaConciliador.get(i).setId(i + 1);
 		}
-
+		System.out.print("asdasdasdsadasdasdasd");
+		return "listasolicitudes";
 	}
 
 }
